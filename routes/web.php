@@ -7,9 +7,11 @@ use App\Http\Controllers\restController;
 
 
 Route::get('/', [attendanceController::class, 'index']);
-Route::post('/', [attendanceController::class, 'stamp']);
 
-Route::post('/rest', [restController::class, 'rest']);
+Route::post('/start', [attendanceController::class, 'start']);
+Route::post('/end', [attendanceController::class, 'end']);
+Route::post('/rest/start', [restController::class, 'start']);
+Route::post('/rest/end', [restController::class, 'end']);
 
 Route::get('/register', [userController::class, 'register']);
 Route::post('/register', [userController::class, 'ok']);
