@@ -11,7 +11,7 @@ class userController extends Controller
     public function check(Request $request)
     {
         $text = ['text' => 'ログインして下さい。'];
-        return view('login', $text);
+        return view('auth', $text);
     }
 
     public function checkUser(Request $request)
@@ -26,6 +26,6 @@ class userController extends Controller
         } else {
             $text = 'ログインに失敗しました';
         }
-        return view('login', ['text' => $text]);
+        return view('auth', ['text' => $text]);
     }
 }
