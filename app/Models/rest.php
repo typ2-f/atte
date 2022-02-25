@@ -8,5 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class rest extends Model
 {
     use HasFactory;
+    public function attendance()
+    {
+        return $this->belongsTo(attendance::class);
+    }
+
     protected $fillable = ['start_time', 'end_time'];
 }

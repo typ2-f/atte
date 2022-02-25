@@ -8,9 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class attendance extends Model
 {
     use HasFactory;
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
-    protected $fillable = ['date_on','start_time','end_time'];
+    public function rests()
+    {
+        return $this->hasMany(rest::class);
+    }
 
-
-
+    protected $fillable = ['date_on', 'start_time', 'end_time'];
 }
