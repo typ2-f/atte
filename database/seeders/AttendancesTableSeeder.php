@@ -8,11 +8,6 @@ use App\Models\attendance;
 
 class AttendancesTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         attendance::factory()->count(10)->create();
