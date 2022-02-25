@@ -11,10 +11,16 @@ use App\Http\Controllers\restController;
 Route::get('/auth', [userController::class, 'check']);
 Route::post('/auth', [userController::class, 'checkUser']);
 
+Route::get('/', [attendanceController::class, 'home'])->middleware('auth');
+Route::post('/', [attendanceController::class, 'stamp'])->middleware('auth');
 
 
 
-Route::get('/', function () {
+
+
+
+
+Route::get('/welcome', function () {
     return view('welcome');
 });
 

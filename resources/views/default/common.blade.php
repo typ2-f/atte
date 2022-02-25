@@ -11,13 +11,13 @@
 </head>
 
 <body>
-    @include('layouts.header')
+    @include('default.header')
     <div class='grayBox'>
         <div class="contents">
             @yield('content')
         </div>
     </div>
-    @include('layouts.footer')
+    @include('default.footer')
 
 
     <script src={{ asset('js/main.js') }}></script>

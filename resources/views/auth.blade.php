@@ -1,4 +1,4 @@
-@extends('layouts.common')
+@extends('default.common')
 @section('title', 'ログインページ')
 
 @section('content')
