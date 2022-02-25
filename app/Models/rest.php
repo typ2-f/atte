@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class rest extends Model
 {
     use HasFactory;
+    protected $fillable = ['start_time', 'end_time'];
 }
