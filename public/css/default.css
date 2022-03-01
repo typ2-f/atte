@@ -1,21 +1,22 @@
 .header {
     height: 100px;
-    width: 1000px;
+    width: 100%;
     background-color: chartreuse;
     margin: 0 auto;
 }
 
 .footer {
     height: 100px;
-    width: 1000px;
+    width: 100%;
     background-color: darksalmon;
     margin: 0 auto;
     text-align: center;
 }
 
 .grayBox {
-    width: 1000px;
+
     height: 600px;
+    width: 100%;
     background-color: lightgray;
 
     margin: auto;

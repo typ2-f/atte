@@ -1,18 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\userController;
-use App\Http\Controllers\attendanceController;
-use App\Http\Controllers\restController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\RestController;
 
 
 
 
-Route::get('/auth', [userController::class, 'check']);
-Route::post('/auth', [userController::class, 'checkUser']);
+Route::get('/auth', [UserController::class, 'check']);
+Route::post('/auth', [UserController::class, 'checkUser']);
 
-Route::get('/', [attendanceController::class, 'home'])->middleware('auth');
-Route::post('/', [attendanceController::class, 'stamp'])->middleware('auth');
+Route::get('/', [AttendanceController::class, 'home'])->middleware('auth');
+Route::post('/', [AttendanceController::class, 'stamp'])->middleware('auth');
 
 
 
