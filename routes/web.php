@@ -8,13 +8,23 @@ use App\Http\Controllers\RestController;
 
 
 
-Route::get('/auth', [UserController::class, 'check']);
-Route::post('/auth', [UserController::class, 'checkUser']);
+Route::get('/register', [UserController::class, 'register']);
+Route::post('/register', [UserController::class, 'add']);
 
-Route::get('/', [AttendanceController::class, 'home'])->middleware('auth');
-Route::post('/', [AttendanceController::class, 'stamp'])->middleware('auth');
+Route::get('/login', [UserController::class, 'login']);
+Route::post('/login', [UserController::class, 'auth']);
 
+Route::get('/', [AttendanceController::class, 'stamp'])->middleware('auth');
+Route::post('/atte/start', [AttendanceController::class, 'start'])->middleware('auth');
+Route::post('/atte/end', [AttendanceController::class, 'end'])->middleware('auth');
 
+Route::post('/rest/start', [RestController::class, 'start'])->middleware('auth');
+Route::post('/rest/end', [RestController::class, 'end'])->middleware('auth');
+
+Route::get('/attendance', [AttendanceController::class, 'attendance'])->middleware('auth');
+
+Route::get('/check', [UserController::class, 'check']);
+Route::post('/check', [UserController::class, 'checkUser']);
 
 
 

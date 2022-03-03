@@ -14,7 +14,7 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
     public function attendances()
     {
-        return $this->hasMany(attendance::class);
+        return $this->hasMany(Attendance::class);
     }
     protected $fillable = [
         'name',
