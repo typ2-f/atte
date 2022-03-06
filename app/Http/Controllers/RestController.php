@@ -10,15 +10,14 @@ class RestController extends Controller
     /**
      *  休憩開始の処理
      */
-    public function start()
+    public function start(Request $request)
     {
     }
 
     /**
      *  休憩終了の処理
      */
-    public function end()
+    public function end(Request $request)
     {
-        //打刻してボタンの状態変化
     }
 }

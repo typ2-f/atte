@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function check(Request $request)
+    public function check()
     {
         $text = ['text' => 'ログインして下さい。'];
         return view('auth', $text);
@@ -22,7 +22,7 @@ class UserController extends Controller
             'email' => $email,
             'password' => $password
         ])) {
-            $text =   Auth::user()->name . 'さんがログインしました';
+            $text = Auth::user()->name . 'さんがログインしました';
         } else {
             $text = 'ログインに失敗しました';
         }
@@ -48,10 +48,11 @@ class UserController extends Controller
         $email = $request->email;
         $password = $request->password;
         if (Auth::attempt(
-        [
-            'email' => $email,
-            'password' => $password
-        ])) {
+            [
+                'email' => $email,
+                'password' => $password
+            ]
+        )) {
             redirect('/');
         }
     }
@@ -69,8 +70,7 @@ class UserController extends Controller
      *
      *  登録が出来たらログインにリダイレクト
      */
-    public function add()
+    public function add(Request $request)
     {
     }
-
 }

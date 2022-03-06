@@ -3,7 +3,7 @@
 
 @section('content')
     <p>{{$text}}</p>
-    <form action='/auth' method='post'>
+    <form action='/check' method='post'>
         <table>
             @csrf
             <tr>

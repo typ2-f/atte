@@ -15,7 +15,7 @@ class AttendanceController extends Controller
     /**
      *  勤務開始の処理
      */
-    public function start()
+    public function start(Request $request)
     {
 
     }
@@ -23,7 +23,7 @@ class AttendanceController extends Controller
     /**
      *  勤務終了の処理
      */
-    public function end()
+    public function end(Request $request)
     {
     }
 
