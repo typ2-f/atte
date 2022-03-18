@@ -40,21 +40,23 @@ class UserController extends Controller
     /**
      *  ログイン処理
      *
-     *  ログインできたら/homeにリダイレクト
-     *  できなかった場合エラーメッセージを表示する
+     *  ログインできたら'/'にリダイレクト
+     *  ログインできなかった場合エラーメッセージを表示する
      */
     public function auth(Request $request)
     {
         $email = $request->email;
         $password = $request->password;
-        if (Auth::attempt(
-            [
-                'email' => $email,
-                'password' => $password
-            ]
-        )) {
-            redirect('/');
-        }
+
+        $credential = [
+            'email' => $email,
+            'password' => $password
+        ];
+        if(Auth::attempt($credential)){
+            return redirect('/');
+        }else{
+            return view('login_error');
+        };
     }
 
     /**
@@ -73,4 +75,19 @@ class UserController extends Controller
     public function add(Request $request)
     {
     }
+
+    /**
+     *  ログアウト
+     *
+     *  ログアウト処理後、ログインにリダイレクト
+     */
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/login');
+    }
+
 }
+

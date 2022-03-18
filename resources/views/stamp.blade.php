@@ -15,7 +15,6 @@
     </form>
     <form action='/' method=post>
         @csrf
-
         <button type='submit' name='rest_end'>休憩終了</button>
     </form>
 @endsection
