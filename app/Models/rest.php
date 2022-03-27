@@ -13,5 +13,5 @@ class Rest extends Model
         return $this->belongsTo(Attendance::class);
     }
 
-    protected $fillable = ['start_time', 'end_time'];
+    protected $fillable = ['attendance_id','start_time', 'end_time'];
 }

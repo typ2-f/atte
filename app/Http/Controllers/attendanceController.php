@@ -2,13 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Attendance;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use App\Models\User;
+use App\Models\Attendance;
+use App\Models\Rest;
+use Illuminate\Support\Facades\Auth;
 
 class AttendanceController extends Controller
 {
+    /**
+     * 打刻ページの表示
+     */
     public function stamp()
     {
+        $user = Auth::user();
+        $today = Carbon::today()->format('Y-m-d');
         return view('stamp');
     }
 
@@ -30,7 +39,8 @@ class AttendanceController extends Controller
     /**
      *  勤怠管理ページの表示
      */
-    public function attendance()
+    public function attendance(Request $request)
     {
+        $items = Attendance::with()
     }
 }
