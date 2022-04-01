@@ -1,6 +1,7 @@
 @extends('default.common')
 
 @section('content')
+    <p>{{ $param['user'] }}さんお疲れ様です</p>
     <!--勤務開始-->
     <form action='/atte/start' method=post>
         @csrf
@@ -23,5 +24,12 @@
     <form action='/rest/end' method=post>
         @csrf
         <button type='submit' name='rest_end'>休憩終了</button>
+    </form>
+
+    <form action='/atte/start' method=post>
+        @csrf
+        <x-button_test>
+            あいうえお
+        </x-button_test>
     </form>
 @endsection

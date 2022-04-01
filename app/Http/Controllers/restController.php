@@ -2,8 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rest;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+
+use App\Models\User;
+use App\Models\Attendance;
+use App\Models\Rest;
+
 
 class RestController extends Controller
 {
@@ -12,6 +19,16 @@ class RestController extends Controller
      */
     public function start(Request $request)
     {
+        $user       = Auth::user();
+        $now        = Carbon::now()->format("H:i:s");
+        $attendance = Attendance::where("user_id", $user->id)
+            ->orderBy("id", "desc")
+            ->first();
+        Rest::create([
+            "attendance_id" => $attendance->id,
+            "start_time"    => $now
+        ]);
+        return redirect("/");
     }
 
     /**
@@ -19,5 +36,15 @@ class RestController extends Controller
      */
     public function end(Request $request)
     {
+        $user       = Auth::user();
+        $now        = Carbon::now()->format("H:i:s");
+        $attendance = Attendance::where("user_id", $user->id)
+            ->orderBy("id", "desc")
+            ->first();
+        Rest::where("attendance_id", $attendance->id)
+            ->update(
+                ["end_time" => $now]
+            );
+        return redirect("/");
     }
 }
