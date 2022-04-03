@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Attendance;
 use App\Models\Rest;
-use phpDocumentor\Reflection\Types\Null_;
+
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class AttendanceController extends Controller
 {
@@ -17,21 +17,9 @@ class AttendanceController extends Controller
      */
     public function stamp()
     {
-        $user   = Auth::user();
-        $today  = Carbon::today()->format('Y-m-d');
-
-        //Attendancesテーブル,Restテーブルの確認
-        $attendance = Attendance::where("user_id", $user->id)->where("date_on", $today)->first();
-        if ($attendance != Null) {
-            $rest = Rest::where("attendance_id", $attendance->id)->orderBy("id", "desc")->first();
-        }else{
-            $rest=Null;
-        }
-        //ボタンの活性or非活性を判定するためのパラメータを渡したい
-        $param = ["user" => $user->name];
-
-
-        return view('stamp', compact('param'));
+        $param = Attendance::stamp();
+        dd($param);
+        return view('stamp',compact('param'));
     }
 
     /**

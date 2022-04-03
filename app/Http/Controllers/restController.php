@@ -19,11 +19,10 @@ class RestController extends Controller
      */
     public function start(Request $request)
     {
-        $user       = Auth::user();
-        $now        = Carbon::now()->format("H:i:s");
-        $attendance = Attendance::where("user_id", $user->id)
-            ->orderBy("id", "desc")
-            ->first();
+        $user   = Auth::user();
+        $today  = Carbon::today()->format('Y-m-d');
+        $now    = Carbon::now()->format("H:i:s");
+        $attendance = Attendance::where("user_id", $user->id)->where("date_on", $today)->first();
         Rest::create([
             "attendance_id" => $attendance->id,
             "start_time"    => $now
@@ -36,12 +35,12 @@ class RestController extends Controller
      */
     public function end(Request $request)
     {
-        $user       = Auth::user();
-        $now        = Carbon::now()->format("H:i:s");
-        $attendance = Attendance::where("user_id", $user->id)
-            ->orderBy("id", "desc")
-            ->first();
-        Rest::where("attendance_id", $attendance->id)
+        $user   = Auth::user();
+        $today  = Carbon::today()->format('Y-m-d');
+        $now    = Carbon::now()->format("H:i:s");
+        $attendance = Attendance::where("user_id", $user->id)->where("date_on", $today)->first();
+
+        Rest::where("attendance_id", $attendance->id)->last()
             ->update(
                 ["end_time" => $now]
             );

@@ -32,9 +32,9 @@ class UserController extends Controller
             'email' => $email,
             'password' => $password
         ];
-        if(Auth::attempt($credential)){
+        if (Auth::attempt($credential)) {
             return redirect('/');
-        }else{
+        } else {
             return view('login_error');
         };
     }
@@ -74,6 +74,4 @@ class UserController extends Controller
         $request->session()->regenerateToken();
         return redirect('/login');
     }
-
 }
-
