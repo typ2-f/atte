@@ -28,12 +28,6 @@ class User extends Authenticatable
         return $this->hasMany(Attendance::class);
     }
 
-    /* 頻繁に使う値群をまとめておく */
-    public static function common()
-    {
-        $user   = Auth::user();
-        $today  = Carbon::today()->format('Y-m-d');
-        $now    = Carbon::now()->format("H:i:s");
-    }
+
 
 }

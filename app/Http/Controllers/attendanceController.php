@@ -18,7 +18,6 @@ class AttendanceController extends Controller
     public function stamp()
     {
         $param = Attendance::stamp();
-        dd($param);
         return view('stamp',compact('param'));
     }
 

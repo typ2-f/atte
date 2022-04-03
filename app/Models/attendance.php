@@ -38,10 +38,7 @@ class Attendance extends Model
         $attendance = Attendance::where("user_id", $user->id)->where("date_on", $today)->first();
         $result = [
             'user'          => $user->name,
-            'atte_start'    => isset($attendance->start_time),
-            'atte_end'      => isset($attendance->end_time),
-            'rest_start'    => isset($attendance->rests()),
-            'rest_end'      => isset($attendance->rests->last()->end_time)
+
         ];
 
         return $result;
