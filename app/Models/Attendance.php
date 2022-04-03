@@ -23,24 +23,4 @@ class Attendance extends Model
     {
         return $this->hasMany(Rest::class);
     }
-
-    /**
-     * @return AttendanceController
-     * 打刻ページでのボタンの活性or非活性判定のためのデータを渡す
-     */
-    public static function stamp()
-    {
-        $user   = Auth::user();
-        $today  = Carbon::today()->format('Y-m-d');
-        $now    = Carbon::now()->format("H:i:s");
-
-
-        $attendance = Attendance::where("user_id", $user->id)->where("date_on", $today)->first();
-        $result = [
-            'user'          => $user->name,
-
-        ];
-
-        return $result;
-    }
 }

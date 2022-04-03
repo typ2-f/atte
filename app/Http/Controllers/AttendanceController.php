@@ -17,7 +17,14 @@ class AttendanceController extends Controller
      */
     public function stamp()
     {
-        $param = Attendance::stamp();
+        $user   = Auth::user();
+        $today  = Carbon::today()->format('Y-m-d');
+        $now    = Carbon::now()->format("H:i:s");
+        $attendance = Attendance::where("user_id", $user->id)->where("date_on", $today)->first();
+
+        $param=[
+            'user'=>$user->name
+        ];
         return view('stamp',compact('param'));
     }
 
