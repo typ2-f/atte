@@ -21,7 +21,7 @@
 
 
     <script src={{ asset('js/main.js') }}></script>
-    @yield(`pageJS`)
+    @yield('pageJS')
 </body>
 
 </html>

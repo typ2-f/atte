@@ -22,10 +22,29 @@ class AttendanceController extends Controller
         $now    = Carbon::now()->format("H:i:s");
         $attendance = Attendance::where("user_id", $user->id)->where("date_on", $today)->first();
 
-        $param=[
-            'user'=>$user->name
+        //isset($attendance->rests->last()->start_time) が
+        //$attendance = null の際にエラーになるのでクッションとして$restsを定義する
+        if (isset($attendance)) {
+            $rests = $attendance->rests->last();
+        } else {
+            $rests = Null;
+        };
+
+        //各データが入っているかの判定を行う
+        $atte_start    = isset($attendance->start_time);
+        $atte_end      = isset($attendance->end_time);
+        $rest_start    = isset($rests->start_time);
+        $rest_end      = isset($rests->end_time);
+
+        //データ有無をもとに各ボタンのクリック可否を判定し、viewに送る
+        $param = [
+            'user'          => $user->name,
+            'atte_start'    => !$atte_start,
+            'atte_end'      => $atte_start && !$atte_end,
+            'rest_start'    => $atte_start && !$atte_end && ($rest_start === $rest_end),
+            'rest_end'      => $atte_start && !$atte_end && $rest_start && !$rest_end
         ];
-        return view('stamp',compact('param'));
+        return view('stamp', compact('param'));
     }
 
     /**

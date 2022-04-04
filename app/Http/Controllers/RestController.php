@@ -40,7 +40,6 @@ class RestController extends Controller
         $now    = Carbon::now()->format("H:i:s");
         $attendance = Attendance::where("user_id", $user->id)->where("date_on", $today)->first();
 
-        //id)->last()->updateだと動かない。なんで？
         Rest::where("attendance_id", $attendance->id)->latest()->first()
             ->update(
                 ["end_time" => $now]
