@@ -55,12 +55,18 @@ class AttendanceController extends Controller
     /**
      *  勤怠管理ページの表示
      */
-    public function attendance(Request $request)
+    public function attendance($date)
     {
-        $data = Attendance::common();
-        $attes = Attendance::where("date_on", $data['today'])->paginate(4);
-        return  view('attendance', ['attes' => $attes]);
-    }
+        //"日付一覧"をクリックした場合は今日の日付の情報を出す
+        if($date==="today"){
+            $date = Carbon::today()->format('Y-m-d');
+        }
 
-    
+        $attes = Attendance::where("date_on", $date)->paginate(4);
+        $param=[
+            'date' => $date,
+            'attes' => $attes
+        ];
+        return  view('attendance', $param);
+    }
 }

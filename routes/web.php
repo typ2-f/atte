@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/rest/end', [RestController::class, 'end']);
 
     //ページネーション
-    Route::get('/attendance', [AttendanceController::class, 'attendance']);
+    Route::get('/attendance/{date}', [AttendanceController::class, 'attendance']);
 });
 
 //新規会員登録

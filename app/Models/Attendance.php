@@ -41,7 +41,9 @@ class Attendance extends Model
         return $data;
     }
 
-
+    /**
+     * 打刻ページにアクセスしたときに返すデータ
+     */
     public static function stamp()
     {
         $data = Attendance::common();
@@ -61,7 +63,7 @@ class Attendance extends Model
         $rest_start = isset($rests->start_time);
         $rest_end   = isset($rests->end_time);
 
-        //データ有無をもとに各ボタンのクリック可否を判定し、viewに送る
+        //データ有無をもとに各ボタンのクリック可否を判定して返す。user以外はboolean
         $param = [
             'user'       => $data['name'],
             'atte_start' => !$atte_start,
@@ -71,7 +73,6 @@ class Attendance extends Model
         ];
         return $param;
     }
-
 
     /**
      * 勤務時間の計算
@@ -83,7 +84,7 @@ class Attendance extends Model
         $work = $atte - $rests;
         $param = [
             'rests' => self::shapeTime($rests),
-            'work' => self::shapeTime($work)
+            'work'  => self::shapeTime($work)
         ];
         return $param;
     }
@@ -94,7 +95,7 @@ class Attendance extends Model
      */
     public static function shapeTime($time)
     {
-        $hours = floor($time / 3600);
+        $hours   = floor($time / 3600);
         $minutes = floor(($time / 60) % 60);
         $seconds = $time % 60;
         $shaped_time = Carbon::createFromTime($hours, $minutes, $seconds)->toTimeString();
