@@ -79,6 +79,11 @@ class Attendance extends Model
      */
     public function calcAtte()
     {
+        //退勤前の時、attendance->end_timeを今の時間として計算する
+        if(!isset($this->end_time)){
+            $this->end_time = Carbon::now()->format("H:i:s");
+        }
+
         $atte = strtotime($this->end_time) - strtotime($this->start_time);
         $rests = Rest::sumRests($this->rests);
         $work = $atte - $rests;

@@ -62,7 +62,7 @@ class AttendanceController extends Controller
             $date = Carbon::today()->format('Y-m-d');
         }
 
-        $attes = Attendance::where("date_on", $date)->paginate(4);
+        $attes = Attendance::where("date_on", $date)->paginate(5);
         $param=[
             'date' => $date,
             'attes' => $attes
