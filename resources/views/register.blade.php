@@ -16,7 +16,7 @@
 
             <!--パスワード-->
             <div class="md-form">
-                <input type="text" name="password" required value="{{ old('password') }}" placeholder="パスワード">
+                <input type="password" name="password" required value="{{ old('password') }}" placeholder="パスワード">
             </div>
 
             <!--会員登録ボタン あとでコンポーネントからに変更-->

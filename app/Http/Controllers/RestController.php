@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\Attendance;
 use App\Models\Rest;
 
+use function PHPSTORM_META\map;
 
 class RestController extends Controller
 {
@@ -19,13 +20,11 @@ class RestController extends Controller
      */
     public function start(Request $request)
     {
-        $user   = Auth::user();
-        $today  = Carbon::today()->format('Y-m-d');
-        $now    = Carbon::now()->format("H:i:s");
-        $attendance = Attendance::where("user_id", $user->id)->where("date_on", $today)->first();
+        $data = Attendance::Common();
+        $atte = Attendance::where("user_id", $data['user_id'])->where("date_on", $data['today'])->first();
         Rest::create([
-            "attendance_id" => $attendance->id,
-            "start_time"    => $now
+            "attendance_id" => $atte->id,
+            "start_time"    => $data['now']
         ]);
         return redirect("/");
     }
@@ -35,15 +34,14 @@ class RestController extends Controller
      */
     public function end(Request $request)
     {
-        $user   = Auth::user();
-        $today  = Carbon::today()->format('Y-m-d');
-        $now    = Carbon::now()->format("H:i:s");
-        $attendance = Attendance::where("user_id", $user->id)->where("date_on", $today)->first();
-
-        Rest::where("attendance_id", $attendance->id)->latest()->first()
+        $data = Attendance::Common();
+        $atte = Attendance::where("user_id", $data['user_id'])->where("date_on", $data['today'])->first();
+        Rest::where("attendance_id", $atte->id)->latest()->first()
             ->update(
-                ["end_time" => $now]
+                ["end_time" => $data['now']]
             );
         return redirect("/");
     }
+
+
 }

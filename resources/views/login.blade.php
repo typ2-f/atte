@@ -19,6 +19,6 @@
     </section>
     <section class="title-register">
         <p class="msg-login">アカウントをお持ちでない方はこちらから</p>
-        <a href="/login" class="link_login">会員登録</a>
+        <a href="/register" class="link_register">会員登録</a>
     </section>
 @endsection
