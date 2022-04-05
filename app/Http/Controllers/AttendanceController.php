@@ -43,12 +43,21 @@ class AttendanceController extends Controller
     public function end(Request $request)
     {
         $data = Attendance::common();
-        Attendance::where("user_id", $data['user_id'])
+        $atte = Attendance::where("user_id", $data['user_id'])
             ->where("date_on", $data['today'])
-            ->first()
-            ->update(
+            ->first();
+
+        //休憩開始から勤務終了を直接押したとき休憩終了の処理も行う
+        if(!isset($atte->rests->last()->end_time)){
+            $atte->rests->last()->update(
                 ["end_time" => $data['now']]
             );
+        }
+
+        $atte->update(
+            ["end_time" => $data['now']]
+        );
+
         return redirect("/");
     }
 
