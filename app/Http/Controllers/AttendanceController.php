@@ -47,8 +47,9 @@ class AttendanceController extends Controller
             ->where("date_on", $data['today'])
             ->first();
 
-        //休憩開始から勤務終了を直接押したとき休憩終了の処理も行う
-        if(!isset($atte->rests->last()->end_time)){
+        //休憩終了が押せる状態なら休憩終了の処理を行う
+        $rest_end = $request->rest_end;
+        if ($rest_end) {
             $atte->rests->last()->update(
                 ["end_time" => $data['now']]
             );
@@ -57,7 +58,6 @@ class AttendanceController extends Controller
         $atte->update(
             ["end_time" => $data['now']]
         );
-
         return redirect("/");
     }
 
@@ -67,12 +67,15 @@ class AttendanceController extends Controller
     public function attendance($date)
     {
         //"日付一覧"をクリックした場合は今日の日付の情報を出す
-        if($date==="today"){
+        if ($date === "today") {
             $date = Carbon::today()->format('Y-m-d');
         }
 
-        $attes = Attendance::where("date_on", $date)->paginate(5);
-        $param=[
+        //user_idでソートすると表示される場所がある程度固定されるので確認が楽になる
+        $attes = Attendance::where("date_on", $date)
+            ->orderby("user_id")
+            ->paginate(5);
+        $param = [
             'date' => $date,
             'attes' => $attes
         ];

@@ -1,20 +1,23 @@
 @extends('default.common')
+@section('title','atte-ログイン')
+@section('pageCSS')
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+@endsection
+
 
 @section('content')
     <section class="form" id="login">
         <form action='/login' method='post'>
-            <table>
-                @csrf
-                <tr>
-                    <th>メール：</th>
-                    <td><input type='text' name='email'></td>
-                </tr>
-                <tr>
-                    <th>パスワード：</th>
-                    <td><input type='password' name='password'></td>
-                </tr>
-            </table>
-            <button type='submit'>ログイン</button>
+            @csrf
+            <div class="form-input">
+                <input type='text' name='email' required value="{{ old('email') }}" placeholder="メールアドレス">
+            </div>
+            <div class="form-input">
+                <input type='password' name='password' required placeholder="パスワード">
+            </div>
+            <x-button>
+                ログイン
+            </x-button>
         </form>
     </section>
     <section class="title-register">

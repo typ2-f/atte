@@ -1,7 +1,14 @@
 @extends('default.common')
+@section('title', 'atte-勤怠')
+
+@section('pageCSS')
+    <link rel="stylesheet" href="{{ asset('css/attendance.css') }}">
+@endsection
+
+
+
 @section('content')
     <div>
-
         <ul class="date-head">
             <li class="date-list">
                 <a class="arrow" href="{!! '/attendance/' . date('Y-m-d', strtotime('-1 day', strtotime($date))) !!}">&lt;</a>
@@ -31,6 +38,6 @@
                 </tr>
             @endforeach
         </table>
-        {{ $attes->links() }}
+        {{ $attes->links('vendor.pagination.default') }}
     </div>
 @endsection

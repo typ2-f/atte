@@ -12,9 +12,9 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        User::factory()->count(10)
-            ->has(attendance::factory()->count(5)
-                ->has(rest::factory()
+        User::factory()->count(100)
+            ->has(Attendance::factory()->count(5)
+                ->has(Rest::factory()
                 )
             )->create();
     }

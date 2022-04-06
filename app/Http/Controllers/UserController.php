@@ -14,7 +14,7 @@ class UserController extends Controller
      */
     public function login()
     {
-        return view('login');
+        return view('login', ['email' => Null]);
     }
 
     /**
@@ -50,7 +50,7 @@ class UserController extends Controller
     /**
      *  登録処理
      *
-     *  登録が出来たらログインにリダイレクト
+     *  ログインにリダイレクト
      */
     public function store(Request $form)
     {

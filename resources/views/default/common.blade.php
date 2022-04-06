@@ -7,6 +7,7 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/default.css') }}">
+    <link rel="shortcut icon" href="{{ asset('/atte-favicon.ico') }}">
     @yield('pageCSS')
 </head>
 

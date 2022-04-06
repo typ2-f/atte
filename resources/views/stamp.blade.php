@@ -1,4 +1,8 @@
 @extends('default.common')
+@section('title','atte-ホーム')
+@section('pageCSS')
+    <link rel="stylesheet" href="{{ asset('css/stamp.css') }}">
+@endsection
 
 @section('content')
 
@@ -14,6 +18,7 @@
     <!--勤務終了-->
     <form action='/atte/end' method=post>
         @csrf
+        <input type="hidden" name="rest_end" value={{$rest_end}}>
         <x-btn_stamp :detect="$atte_end">
             勤務終了
         </x-btn_stamp>
