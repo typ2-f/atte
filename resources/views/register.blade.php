@@ -27,11 +27,15 @@
 
             <!--パスワード-->
             <div class="form-element">
-                <input type="password" class="form-input" name="password" required placeholder="パスワード">
+                <input type="password" class="form-input" name="password" id="password" required placeholder="パスワード">
             </div>
             <!--パスワード確認-->
-            <div class="form-element">
-                <input type="password" class="form-input" name="pass-check" required placeholder="パスワード確認用">
+            <div class="form-element" id="form-pass_check">
+                <input type="password" class="form-input" name="passcheck" id="passcheck" required
+                    placeholder="パスワード確認用">
+            </div>
+            <div class="flash-message">
+                <p id="err_msg"></p>
             </div>
             <div>
                 <x-button>

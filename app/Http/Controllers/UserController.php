@@ -59,6 +59,9 @@ class UserController extends Controller
             'email' => $form->email,
             'password' => Hash::make($form->password)
         ]);
+
+        //createメソッドが失敗したときの処理追加したい
+
         return redirect('/login');
     }
 
