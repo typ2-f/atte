@@ -7,8 +7,8 @@
     <h1 class="content-ttl">ログイン</h1>
 
     <div class="flash-message">
-        @if (session('result'))
-            {{ session('result') }}
+        @if (session('error'))
+            {{ session('error') }}
         @endif
     </div>
 

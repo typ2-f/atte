@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function login()
     {
-        return view('login', ['email' => Null]);
+        return view('login');
     }
 
     /**
@@ -62,15 +62,14 @@ class UserController extends Controller
                 'password' => Hash::make($form->password)
             ]);
         }catch(QueryException $e){
+
+            //既に存在するemail->1062エラーでcreateできないときエラー文を返す
             $errorCode = $e->errorInfo[1];
             if ($errorCode == 1062)
             {
                 return back()->withInput()->with(['error' => "このアドレスはすでに使用されています"]);
             }
         }
-
-        //createメソッドが失敗したときの処理追加したい
-
         return redirect('/login');
     }
 
