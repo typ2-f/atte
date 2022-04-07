@@ -20,7 +20,7 @@ class RestController extends Controller
      */
     public function start(Request $request)
     {
-        $data = Attendance::Common();
+        $data = Attendance::common();
         $atte = Attendance::where("user_id", $data['user_id'])->where("date_on", $data['today'])->first();
         Rest::create([
             "attendance_id" => $atte->id,
@@ -34,7 +34,7 @@ class RestController extends Controller
      */
     public function end(Request $request)
     {
-        $data = Attendance::Common();
+        $data = Attendance::common();
         $atte = Attendance::where("user_id", $data['user_id'])->where("date_on", $data['today'])->first();
         Rest::where("attendance_id", $atte->id)->latest()->first()
             ->update(

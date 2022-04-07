@@ -26,6 +26,11 @@ class Attendance extends Model
 
     /**
      * 複数のメソッドで共通のデータを整理
+     * [
+     *      ユーザー情報,
+     *      今日の日付,
+     *      今の時間
+     * ];
      */
     public static function common()
     {
@@ -42,7 +47,7 @@ class Attendance extends Model
     }
 
     /**
-     * 打刻ページにアクセスしたときに返すデータ
+     * 打刻ページにアクセスされたときに返すデータ
      */
     public static function stamp()
     {

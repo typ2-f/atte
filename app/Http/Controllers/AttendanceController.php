@@ -71,10 +71,11 @@ class AttendanceController extends Controller
             $date = Carbon::today()->format('Y-m-d');
         }
 
-        //user_idでソートすると表示される場所がある程度固定されるので確認が楽になる
+        //user_idでソートしておくと表示される場所がある程度固定されるので確認が楽になる
         $attes = Attendance::where("date_on", $date)
             ->orderby("user_id")
             ->paginate(5);
+
         $param = [
             'date' => $date,
             'attes' => $attes
