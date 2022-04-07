@@ -1,0 +1,26 @@
+header {
+  background-color: white;
+  height: 40px;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .logo {
+  font-size: 24px;
+  font-weight: 900;
+}
+header nav {
+  display: flex;
+}
+header nav ul {
+  display: flex;
+  list-style: none;
+}
+header nav ul .header-nav-item a {
+  margin-left: 40px;
+  font-size: 15px;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}

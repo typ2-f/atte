@@ -1,5 +1,5 @@
-const mix = require('laravel-mix');
-
+const mix = require("laravel-mix");
+const glob = require("glob");
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -11,8 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'public/css', [
-    require('postcss-import'),
-    require('tailwindcss'),
-    require('autoprefixer'),
-]);
+mix.js("resources/js/app.js", "public/js");
+glob.sync("resources/scss/*/*.scss").map(function (file) {
+    mix.sass(file, "public/css");
+});

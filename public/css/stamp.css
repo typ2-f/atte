@@ -1,0 +1,18 @@
+.stamps {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.stamps form {
+  width: 45%;
+  display: flex;
+  border: 1px solid black;
+  padding: 10px;
+}
+.stamps .atte-start {
+  display: flex;
+}
+.stamps .atte-start button {
+  align-self: flex-end;
+}

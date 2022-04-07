@@ -35,7 +35,7 @@ class UserController extends Controller
         if (Auth::attempt($credential)) {
             return redirect('/');
         } else {
-            return view('login_error');
+            return redirect('login')->with('result', 'メールアドレスまたはパスワードが違います');
         };
     }
 

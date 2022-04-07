@@ -1,10 +1,3 @@
-<style>
-    button{
-        
-    }
-</style>
-
-
-<button>
+<button class="btn-post">
     {{ $slot }}
 </button>
