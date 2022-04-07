@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\QueryException;
 
 class UserController extends Controller
 {
@@ -35,7 +36,7 @@ class UserController extends Controller
         if (Auth::attempt($credential)) {
             return redirect('/');
         } else {
-            return redirect('login')->with('result', 'メールアドレスまたはパスワードが違います');
+            return back()->withInput()->with('error', 'メールアドレスまたはパスワードが違います');
         };
     }
 
@@ -54,11 +55,19 @@ class UserController extends Controller
      */
     public function store(Request $form)
     {
-        User::create([
-            'name' => $form->name,
-            'email' => $form->email,
-            'password' => Hash::make($form->password)
-        ]);
+        try{
+            User::create([
+                'name' => $form->name,
+                'email' => $form->email,
+                'password' => Hash::make($form->password)
+            ]);
+        }catch(QueryException $e){
+            $errorCode = $e->errorInfo[1];
+            if ($errorCode == 1062)
+            {
+                return back()->withInput()->with(['error' => "このアドレスはすでに使用されています"]);
+            }
+        }
 
         //createメソッドが失敗したときの処理追加したい
 

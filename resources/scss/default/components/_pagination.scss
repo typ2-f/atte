@@ -1,0 +1,30 @@
+.pagination {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+
+    li {
+        background-color: white;
+        font-size: 20px;
+        width: 50px;
+        height: 40px;
+        display: flex;
+        align-items:normal;
+        border-collapse: collapse;
+        border:1px solid #ebebeb;
+
+        span {
+            width: 100%;
+            line-height: 40px;
+            text-align: center;
+            background-color: #00a2ff;
+            color: white;
+        }
+        a {
+            width: 100%;
+            line-height: 40px;
+            text-decoration: none;
+            color: #00a2ff;
+        }
+    }
+}

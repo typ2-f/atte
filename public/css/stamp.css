@@ -3,16 +3,30 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 10px;
 }
 .stamps form {
   width: 45%;
-  display: flex;
-  border: 1px solid black;
   padding: 10px;
-}
-.stamps .atte-start {
-  display: flex;
+  position: relative;
 }
 .stamps .atte-start button {
-  align-self: flex-end;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+.stamps .atte-end button {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+.stamps .rest-start button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.stamps .rest-end button {
+  position: absolute;
+  left: 10px;
+  top: 10px;
 }

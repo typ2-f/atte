@@ -8,36 +8,37 @@
 
 
 @section('content')
-    <div>
-        <ul class="date-head">
-            <li class="date-list">
-                <a class="arrow" href="{!! '/attendance/' . date('Y-m-d', strtotime('-1 day', strtotime($date))) !!}">&lt;</a>
-            </li>
-            <li class="date-list date">
-                {{ $date }}
-            </li>
-            <li class="date-list">
-                <a class="arrow" href="{!! '/attendance/' . date('Y-m-d', strtotime('+1 day', strtotime($date))) !!}">&gt;</a>
-            </li>
-        </ul>
-        <table>
-            <tr class="list-title">
-                <th>名前</th>
-                <th>勤務開始</th>
-                <th>勤務終了</th>
-                <th>休憩時間</th>
-                <th>勤務時間</th>
+    <ul class="date-head">
+        <li class="date-arrow">
+            <a class="arrow" href="{!! '/attendance/' . date('Y-m-d', strtotime('-1 day', strtotime($date))) !!}">&lt;</a>
+        </li>
+        <li class="date">
+            {{ $date }}
+        </li>
+        <li class="date-arrow">
+            <a class="arrow" href="{!! '/attendance/' . date('Y-m-d', strtotime('+1 day', strtotime($date))) !!}">&gt;</a>
+        </li>
+    </ul>
+    <div class="atte-data">
+        <table class="atte-table">
+            <tr class="atte-tr">
+                <th class="atte-th">名前</th>
+                <th class="atte-th">勤務開始</th>
+                <th class="atte-th">勤務終了</th>
+                <th class="atte-th">休憩時間</th>
+                <th class="atte-th">勤務時間</th>
             </tr>
             @foreach ($attes as $atte)
-                <tr class="list-content">
-                    <td>{{ $atte->user->name }}</td>
-                    <td>{{ $atte->start_time }}</td>
-                    <td>{{ $atte->end_time }}</td>
-                    <td>{{ $atte->calcAtte()['rests'] }}</td>
-                    <td>{{ $atte->calcAtte()['work'] }}</td>
+                <tr class="atte-tr">
+                    <td class="atte-td">{{ $atte->user->name }}</td>
+                    <td class="atte-td">{{ $atte->start_time }}</td>
+                    <td class="atte-td">{{ $atte->end_time }}</td>
+                    <td class="atte-td">{{ $atte->calcAtte()['rests'] }}</td>
+                    <td class="atte-td">{{ $atte->calcAtte()['work'] }}</td>
                 </tr>
             @endforeach
         </table>
-        {{ $attes->links('vendor.pagination.default') }}
     </div>
+    {{ $attes->links('vendor.pagination.default') }}
+
 @endsection

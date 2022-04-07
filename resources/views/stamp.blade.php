@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <p>{{ $user }}さんお疲れ様です</p>
+    <p class="content-ttl">{{ $user }}さんお疲れ様です</p>
     <section class="stamps">
         <!--勤務開始-->
         <form action='/atte/start' method=post class="atte-start">
@@ -17,10 +17,10 @@
         </form>
 
         <!--勤務終了-->
-        <form action='/atte/end' method=post>
+        <form action='/atte/end' method=post class="atte-end">
             @csrf
             <input type="hidden" name="rest_end" value={{ $rest_end }}>
-            <x-btn_stamp :detect="$atte_end" class="atte-end">
+            <x-btn_stamp :detect="$atte_end" >
                 勤務終了
             </x-btn_stamp>
         </form>

@@ -7,8 +7,8 @@
     <h1 class="content-ttl">会員登録</h1>
 
     <div class="flash-message">
-        @if (session('result'))
-            {{ session('result') }}
+        @if (session('error'))
+            {{ session('error') }}
         @endif
     </div>
     <section class="form" id="register">
@@ -16,12 +16,12 @@
             @csrf
             <!--名前-->
             <div class="form-element">
-                <input type="text" class="form-input" name="name" required value="{{ old('name') }}" placeholder="名前">
+                <input type="text" class="form-input" name="name" id="name" required value="{{ old('name') }}" placeholder="名前">
             </div>
 
             <!--メールアドレス-->
             <div class="form-element">
-                <input type="text" class="form-input" name="email" required value="{{ old('email') }}"
+                <input type="text" class="form-input" name="email" id="email" required value="{{ old('email') }}"
                     placeholder="メールアドレス">
             </div>
 
@@ -35,7 +35,7 @@
                     placeholder="パスワード確認用">
             </div>
             <div class="flash-message">
-                <p id="err_msg"></p>
+                <p id="err_byJS"></p>
             </div>
             <div>
                 <x-button>

@@ -1,0 +1,57 @@
+.date-head {
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+
+    .date {
+        font-size: 28px;
+    }
+
+    .date-arrow {
+        width: 30px;
+        height: 30px;
+        background-color: #fff;
+        border-radius: 3px;
+        border: 1px solid #214be0;
+        margin: 0 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .arrow {
+            text-decoration: none;
+            color: #214be0;
+            font-size: 20px;
+        }
+    }
+}
+.atte-data {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.atte-table {
+    .atte-th {
+        width: 18vh;
+        font-size: 18px;
+        font-weight: bold;
+        border-top: 1px solid darkgray;
+        border-bottom: 1px solid darkgray;
+        padding: 15px;
+        text-align: left;
+        font-size: 20px;
+    }
+    .atte-td {
+        border-collapse: collapse;
+        border-top: 1px solid darkgray;
+        padding: 15px;
+        text-align: left;
+        font-size: 20px;
+    }
+
+    .atte-tr:first-child {
+        padding-left: 10px;
+    }
+}
