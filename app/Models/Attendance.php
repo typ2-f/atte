@@ -36,7 +36,7 @@ class Attendance extends Model
     {
         $user   = Auth::user();
         $today  = Carbon::today()->format('Y-m-d');
-        $now    = Carbon::now()->format("H:i:s");
+        $now    = Carbon::now()->format('H:i:s');
         $data = [
             'user_id'    => $user->id,
             'name'  => $user->name,
@@ -52,8 +52,8 @@ class Attendance extends Model
     public static function stamp()
     {
         $data = Attendance::common();
-        $atte = Attendance::where("user_id", $data['user_id'])
-            ->where("date_on", $data['today'])
+        $atte = Attendance::where('user_id', $data['user_id'])
+            ->where('date_on', $data['today'])
             ->first();
 
         if (isset($atte)) {
@@ -86,7 +86,7 @@ class Attendance extends Model
     {
         //退勤前の時、attendance->end_timeを今の時間として計算する
         if(!isset($this->end_time)){
-            $this->end_time = Carbon::now()->format("H:i:s");
+            $this->end_time = Carbon::now()->format('H:i:s');
         }
 
         $atte = strtotime($this->end_time) - strtotime($this->start_time);

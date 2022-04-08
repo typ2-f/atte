@@ -24,9 +24,9 @@ class Rest extends Model
         foreach ($rests as $rest) {
             //休憩中の時、$end_timeを今の時間で計算する
             if(!isset($rest->end_time)){
-                $rest->end_time = Carbon::now()->format("H:i:s");
+                $rest->end_time = Carbon::now()->format('H:i:s');
             }
-            
+
             $total += strtotime($rest->end_time) - strtotime($rest->start_time);
         }
         return $total;

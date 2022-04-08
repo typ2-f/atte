@@ -67,7 +67,7 @@ class UserController extends Controller
             $errorCode = $e->errorInfo[1];
             if ($errorCode == 1062)
             {
-                return back()->withInput()->with(['error' => "このアドレスはすでに使用されています"]);
+                return back()->withInput()->with(['error' => 'このアドレスはすでに使用されています']);
             }
         }
         return redirect('/login');

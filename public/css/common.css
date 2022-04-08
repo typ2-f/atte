@@ -115,7 +115,7 @@ ul {
   cursor: pointer;
 }
 
-#ng {
+.btn-stamp[name=stamp-ng] {
   color: gray;
   background-color: #999999;
   cursor: default;
