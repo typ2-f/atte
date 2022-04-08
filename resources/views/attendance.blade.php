@@ -38,7 +38,8 @@
                 </tr>
             @endforeach
         </table>
+        {{ $attes->links('vendor.pagination.default') }}
     </div>
-    {{ $attes->links('vendor.pagination.default') }}
+
 
 @endsection

@@ -1,6 +1,7 @@
 @charset "UTF-8";
 /*ヘッダー、フッター、コンポーネントをまとめてcommon.cssにコンパイル・出力する*/
 /*内容の被る部分が多かったlogin,registerについてもこちらに記載*/
+/*---------------header---------------*/
 header {
   background-color: white;
   height: 40px;
@@ -24,6 +25,7 @@ header nav .header-nav-item a {
   text-decoration: none;
 }
 
+/*---------------footer---------------*/
 .footer {
   left: 0;
   position: fixed;
@@ -38,6 +40,7 @@ header nav .header-nav-item a {
   color: black;
 }
 
+/*---------------body---------------*/
 body {
   background-color: #ebebeb;
   height: 100%;
@@ -45,7 +48,6 @@ body {
   text-align: center;
 }
 
-/*全体設定でリストのdiscを削除しておく */
 ul {
   display: flex;
   list-style: none;
@@ -69,6 +71,7 @@ ul {
   color: red;
 }
 
+/*---------------register,login---------------*/
 .form {
   padding: 5px;
 }
@@ -98,6 +101,8 @@ ul {
   color: blue;
 }
 
+/*---------------components--------------*/
+/*---------------打刻ボタン---------------*/
 .btn-stamp {
   width: 80%;
   height: 70%;
@@ -116,6 +121,7 @@ ul {
   cursor: default;
 }
 
+/*---------------登録・ログインボタン---------------*/
 #btn-post {
   width: 300px;
   font-size: 18px;
@@ -128,6 +134,7 @@ ul {
   cursor: pointer;
 }
 
+/*---------------pagination---------------*/
 .pagination {
   margin-top: 10px;
   display: flex;

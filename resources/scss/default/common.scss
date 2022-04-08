@@ -4,6 +4,7 @@
 @import "components/header";
 @import "components/footer";
 
+/*---------------body---------------*/
 body {
     background-color: #ebebeb;
     height: 100%;
@@ -11,7 +12,7 @@ body {
     text-align: center;
 }
 
-/*全体設定でリストのdiscを削除しておく */
+//全体設定でリストのdiscを削除
 ul {
     display: flex;
     list-style: none;
@@ -33,6 +34,7 @@ ul {
     color: red;
 }
 
+/*---------------register,login---------------*/
 .form {
     padding: 5px;
 }
@@ -64,6 +66,7 @@ ul {
     }
 }
 
+/*---------------components--------------*/
 @import "components/btn-stamp";
 @import "components/button";
 @import "components/pagination";
