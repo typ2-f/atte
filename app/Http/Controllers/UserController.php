@@ -55,18 +55,17 @@ class UserController extends Controller
      */
     public function store(Request $form)
     {
-        try{
+        try {
             User::create([
                 'name' => $form->name,
                 'email' => $form->email,
                 'password' => Hash::make($form->password)
             ]);
-        }catch(QueryException $e){
+        } catch (QueryException $e) {
 
             //既に存在するemail->1062エラーでcreateできないときエラー文を返す
             $errorCode = $e->errorInfo[1];
-            if ($errorCode == 1062)
-            {
+            if ($errorCode == 1062) {
                 return back()->withInput()->with(['error' => 'このアドレスはすでに使用されています']);
             }
         }

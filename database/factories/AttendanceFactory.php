@@ -9,6 +9,7 @@ class AttendanceFactory extends Factory
     public function definition()
     {
         //1週間以内の日付で勤怠データを入れたい
+        //dateTimeBetweenがunique制約をかけても同じ日、別の時間で突破してくるが、本命はページネーションの確認ということで無視
         $now = now();
         $oldestDay = date('Y-m-d',strtotime('-1 week',strtotime($now)));
         return [

@@ -26,13 +26,14 @@ class AttendanceController extends Controller
     /**
      * 勤務開始の処理
      *
-     * 出勤がされていないときAttendance::createを実行
+     * 出勤処理がされていないのを確認してAttendance::createを実行
      */
     public function start(Request $request)
     {
         $data = Attendance::common();
         if ($data['atte_start']) {
-            return redirect('/')->with('error', $data['atte']->start_time.' に既に出勤しています');
+            //既に出勤打刻済みならエラーメッセージを表示する
+            return redirect('/')->with('error', $data['atte']->start_time . ' に既に出勤しています');
         } else {
             Attendance::create([
                 'user_id'    => $data['user']->id,
@@ -67,7 +68,7 @@ class AttendanceController extends Controller
             return redirect('/');
         } else {
             //退勤処理済ならエラーメッセージを表示
-            return redirect('/')->with('error', $data['atte']->end_time.' に退勤済みです');
+            return redirect('/')->with('error', $data['atte']->end_time . ' に退勤済みです');
         }
     }
 
