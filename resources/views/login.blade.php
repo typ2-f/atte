@@ -6,7 +6,8 @@
 @section('content')
     <h1 class="content-ttl">ログイン</h1>
 
-    <div class="flash-message">
+    <!--divタグ直後の全角スペースで常に文字を存在させる-->
+    <div class="flash-message">　
         @if (session('error'))
             {{ session('error') }}
         @endif
