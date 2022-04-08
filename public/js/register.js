@@ -10,7 +10,7 @@ function alertPass() {
         err_msg.innerHTML = '確認用パスワードが一致していません';
         btn_post.setAttribute('disabled', 'true');
     } else {
-        err_msg.innerHTML = '';
+        err_msg.innerHTML = '　';
         btn_post.removeAttribute('disabled');
     }
 }

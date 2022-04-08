@@ -1,7 +1,7 @@
 .date-head {
     display: flex;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     justify-content: center;
     align-items: center;
 
@@ -29,7 +29,7 @@
 }
 .atte-data {
     width: 100%;
-    height: 60vh;
+    height: 65vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -37,7 +37,7 @@
 .atte-table {
     .atte-th {
         width: 15vw;
-        height: 4vh;
+        height: 4.5vh;
         border-top: 1px solid darkgray;
         border-bottom: 1px solid darkgray;
         padding: 15px 0 15px 15px;
@@ -47,7 +47,7 @@
         vertical-align: middle;
     }
     .atte-td {
-        height: 4vh;
+        height: 4.2vh;
         border-collapse: collapse;
         border-top: 1px solid darkgray;
         padding: 15px 0 15px 12px;

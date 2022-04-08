@@ -1,12 +1,13 @@
+//毎秒checkTImeを実行->深夜12時0分0秒ならresetStasmpsを実行
 setInterval('checkTime()', 1000);
 
 function checkTime() {
     const now = dayjs().format('HHmmss');
-    if (now == '152800') {
+    if (now == '000000') {
         resetStamps();
-    } else {
     }
 }
+
 function resetStamps() {
     /**打刻ボタン4つを取得=[
      * atte_start,

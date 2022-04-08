@@ -24,41 +24,51 @@ class AttendanceController extends Controller
     }
 
     /**
-     *  勤務開始の処理
+     * 勤務開始の処理
+     *
+     * 出勤がされていないときAttendance::createを実行
      */
     public function start(Request $request)
     {
         $data = Attendance::common();
-        Attendance::create([
-            'user_id'    => $data['user_id'],
-            'date_on'    => $data['today'],
-            'start_time' => $data['now']
-        ]);
-        return redirect('/');
+        if ($data['atte_start']) {
+            return redirect('/')->with('error', $data['atte']->start_time.' に既に出勤しています');
+        } else {
+            Attendance::create([
+                'user_id'    => $data['user']->id,
+                'date_on'    => $data['today'],
+                'start_time' => $data['now']
+            ]);
+            return redirect('/');
+        }
     }
 
     /**
-     *  勤務終了の処理
+     * 勤務終了の処理
+     *
+     * 出勤して、かつ退勤処理をしていない場合に退勤処理ができる
+     * 休憩から直で退勤の場合、先に休憩終了の処理を挟む
      */
     public function end(Request $request)
     {
         $data = Attendance::common();
-        $atte = Attendance::where('user_id', $data['user_id'])
-            ->where('date_on', $data['today'])
-            ->first();
 
         //休憩終了が押せる状態なら休憩終了の処理を行う
-        $rest_end = $request->rest_end;
-        if ($rest_end) {
-            $atte->rests->last()->update(
+        if ($data['rest_start'] && !$data['rest_end']) {
+            $data['atte']->rests->last()->update(
                 ['end_time' => $data['now']]
             );
         }
-
-        $atte->update(
-            ['end_time' => $data['now']]
-        );
-        return redirect('/');
+        //出勤していてかつ退勤していない状態なら退勤の打刻をする
+        if ($data['atte_start'] && !$data['atte_end']) {
+            $data['atte']->update(
+                ['end_time' => $data['now']]
+            );
+            return redirect('/');
+        } else {
+            //退勤処理済ならエラーメッセージを表示
+            return redirect('/')->with('error', $data['atte']->end_time.' に退勤済みです');
+        }
     }
 
     /**

@@ -26,22 +26,32 @@ class Attendance extends Model
 
     /**
      * 複数のメソッドで共通のデータを整理
-     * [
-     *      ユーザー情報,
-     *      今日の日付,
-     *      今の時間
-     * ];
      */
     public static function common()
     {
         $user   = Auth::user();
         $today  = Carbon::today()->format('Y-m-d');
         $now    = Carbon::now()->format('H:i:s');
+        $atte = Attendance::where('user_id', $user->id)
+            ->where('date_on', $today)
+            ->first();
+
+        if (isset($atte)) {
+            $rests = $atte->rests->last();
+        } else {
+            $rests = Null;
+        };
+
         $data = [
-            'user_id'    => $user->id,
-            'name'  => $user->name,
+            'user'  => $user,
+            'atte'  => $atte,
             'today' => $today,
-            'now'   => $now
+            'now'   => $now,
+            //各データが入っているかの判定
+            'atte_start' => isset($atte->start_time),
+            'atte_end'   => isset($atte->end_time),
+            'rest_start' => isset($rests->start_time),
+            'rest_end'   => isset($rests->end_time),
         ];
         return $data;
     }
@@ -52,29 +62,13 @@ class Attendance extends Model
     public static function stamp()
     {
         $data = Attendance::common();
-        $atte = Attendance::where('user_id', $data['user_id'])
-            ->where('date_on', $data['today'])
-            ->first();
-
-        if (isset($atte)) {
-            $rests = $atte->rests->last();
-        } else {
-            $rests = Null;
-        };
-
-        //各データが入っているかの判定を行う
-        $atte_start = isset($atte->start_time);
-        $atte_end   = isset($atte->end_time);
-        $rest_start = isset($rests->start_time);
-        $rest_end   = isset($rests->end_time);
-
         //データ有無をもとに各ボタンのクリック可否を判定して返す。user以外はboolean
         $param = [
-            'user'       => $data['name'],
-            'atte_start' => !$atte_start,
-            'atte_end'   => $atte_start && !$atte_end,
-            'rest_start' => $atte_start && !$atte_end && ($rest_start === $rest_end),
-            'rest_end'   => $atte_start && !$atte_end && $rest_start && !$rest_end
+            'user'       => $data['user']->name,
+            'atte_start_det' => !$data['atte_start'],
+            'atte_end_det'   => $data['atte_start'] && !$data['atte_end'],
+            'rest_start_det' => $data['atte_start'] && !$data['atte_end'] && ($data['rest_start'] === $data['rest_end']),
+            'rest_end_det'   => $data['atte_start'] && !$data['atte_end'] && $data['rest_start'] && !$data['rest_end']
         ];
         return $param;
     }
@@ -85,7 +79,7 @@ class Attendance extends Model
     public function calcAtte()
     {
         //退勤前の時、attendance->end_timeを今の時間として計算する
-        if(!isset($this->end_time)){
+        if (!isset($this->end_time)) {
             $this->end_time = Carbon::now()->format('H:i:s');
         }
 

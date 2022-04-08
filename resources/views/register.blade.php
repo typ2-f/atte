@@ -7,7 +7,7 @@
     <h1 class='content-ttl'>会員登録</h1>
 
     <!--divタグ直後の全角スペースで常に文字を存在させる-->
-    <div class='flash-message'>　
+    <div class='flash-msg'>　
         @if (session('error'))
             {{ session('error') }}
         @endif
@@ -36,7 +36,7 @@
                     placeholder='パスワード確認用'>
             </div>
             <!--divタグ直後の全角スペースで常に文字を存在させる-->
-            <div class='flash-message'>
+            <div class='flash-msg'>
                 <p id='err_byJS'>　</p>
             </div>
             <div>

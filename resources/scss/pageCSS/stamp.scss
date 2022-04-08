@@ -1,9 +1,16 @@
+
+//commonの設定を上書きする
+.flash-msg{
+    margin:20px 0 0;
+    font-size: 18px;
+}
+
 .stamps {
-    height: 100%;
+    height: 80%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 10px;
+
 
     form {
         width: 45%;
