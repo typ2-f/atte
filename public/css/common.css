@@ -63,7 +63,7 @@ ul {
   font-weight: bold;
 }
 
-.flash-msg {
+.flash_msg {
   margin: 5px;
   height: 15px;
   font-size: 14px;
@@ -103,7 +103,7 @@ ul {
 
 /*---------------components--------------*/
 /*---------------打刻ボタン---------------*/
-.btn-stamp {
+.btn_stamp {
   width: 80%;
   height: 70%;
   font-size: 24px;
@@ -115,14 +115,14 @@ ul {
   cursor: pointer;
 }
 
-.btn-stamp[name=stamp-ng] {
+.btn_stamp[name=stamp_ng] {
   color: gray;
   background-color: #999999;
   cursor: default;
 }
 
 /*---------------登録・ログインボタン---------------*/
-#btn-post {
+#btn_post {
   width: 300px;
   font-size: 18px;
   color: #fff;

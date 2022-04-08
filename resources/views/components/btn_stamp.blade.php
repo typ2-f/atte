@@ -1,9 +1,9 @@
 @if($detect)
-    <button type='submit' class='btn-stamp' name='stamp-ok' >
+    <button type='submit' class='btn_stamp' name='stamp_ok' >
         {{$slot}}
     </button>
 @else
-    <button type='submit' class='btn-stamp' name='stamp-ng' disabled>
+    <button type='submit' class='btn_stamp' name='stamp_ng' disabled>
         {{$slot}}
     </button>
 @endif

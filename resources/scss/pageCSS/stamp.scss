@@ -1,6 +1,6 @@
 
 //commonの設定を上書きする
-.flash-msg{
+.flash_msg{
     margin:20px 0 0;
     font-size: 18px;
 }
@@ -17,22 +17,22 @@
         padding: 10px;
         position:relative;
     }
-    .atte-start button{
+    .atte_start button{
         position:absolute;
         right:10px;
         bottom:10px;
     }
-        .atte-end button{
+        .atte_end button{
         position:absolute;
         left:10px;
         bottom:10px;
     }
-        .rest-start button{
+        .rest_start button{
         position:absolute;
         right:10px;
         top:10px;
     }
-        .rest-end button{
+        .rest_end button{
         position:absolute;
         left:10px;
         top:10px;

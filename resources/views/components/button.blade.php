@@ -1,3 +1,3 @@
-<button id='btn-post'>
+<button id='btn_post'>
     {{ $slot }}
 </button>

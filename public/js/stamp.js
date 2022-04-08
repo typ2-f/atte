@@ -17,16 +17,16 @@ function resetStamps() {
      * ]
      * の順
     */
-    const stamps = document.getElementsByClassName('btn-stamp');
+    const stamps = document.getElementsByClassName('btn_stamp');
     console.log(stamps);
 
     //atte_startを活性にする
     stamps[0].removeAttribute('disabled');
-    stamps[0].setAttribute('name', 'stamp-ok');
+    stamps[0].setAttribute('name', 'stamp_ok');
 
     //他3つを非活性にする
     for (let i = 1; i <= 3; i++) {
         stamps[i].setAttribute('disabled', 'true');
-        stamps[i].setAttribute('name', 'stamp-ng');
+        stamps[i].setAttribute('name', 'stamp_ng');
     }
 }

@@ -1,5 +1,5 @@
 /*---------------打刻ボタン---------------*/
-.btn-stamp {
+.btn_stamp {
     width: 80%;
     height: 70%;
     font-size: 24px;
@@ -11,7 +11,7 @@
     cursor: pointer;
 }
 
-.btn-stamp[name='stamp-ng'] {
+.btn_stamp[name='stamp_ng'] {
     color:gray;
     background-color: #999999;
     cursor:default;

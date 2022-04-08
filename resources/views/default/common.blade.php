@@ -10,17 +10,13 @@
     <link rel='shortcut icon' href='{{ asset('/atte-favicon.ico') }}'>
     @yield('pageCSS')
 </head>
-
 <body>
     @include('default.header')
     <div class='contents'>
             @yield('content')
     </div>
     @include('default.footer')
-
-
     <script src={{ asset('js/main.js') }}></script>
     @yield('pageJS')
 </body>
-
 </html>

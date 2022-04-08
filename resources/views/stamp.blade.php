@@ -7,14 +7,14 @@
 @section('content')
 
     <p class='content-ttl'>{{ $user }}さんお疲れ様です</p>
-    <div class='flash-msg'>　
+    <div class='flash_msg'>　
         @if (session('error'))
             {{ session('error') }}
         @endif
     </div>
     <section class='stamps'>
         <!--勤務開始-->
-        <form action='/atte/start' method=post class='atte-start' id='atte-start'>
+        <form action='/atte/start' method=post class='atte_start' id='atte_start'>
             @csrf
             <x-btn_stamp :detect='$atte_start_det'>
                 勤務開始
@@ -22,7 +22,7 @@
         </form>
 
         <!--勤務終了-->
-        <form action='/atte/end' method=post class='atte-end' id='atte-end'>
+        <form action='/atte/end' method=post class='atte_end' id='atte_end'>
             @csrf
             <x-btn_stamp :detect='$atte_end_det'>
                 勤務終了
@@ -30,7 +30,7 @@
         </form>
 
         <!--休憩開始-->
-        <form action='/rest/start' method=post class='rest-start' id='rest-start'>
+        <form action='/rest/start' method=post class='rest_start' id='rest_start'>
             @csrf
             <x-btn_stamp :detect='$rest_start_det'>
                 休憩開始
@@ -38,7 +38,7 @@
         </form>
 
         <!--休憩終了-->
-        <form action='/rest/end' method=post class='rest-end' id='rest-end'>
+        <form action='/rest/end' method=post class='rest_end' id='rest_end'>
             @csrf
             <x-btn_stamp :detect='$rest_end_det'>
                 休憩終了

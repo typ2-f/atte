@@ -1,4 +1,4 @@
-.flash-msg {
+.flash_msg {
   margin: 20px 0 0;
   font-size: 18px;
 }
@@ -14,22 +14,22 @@
   padding: 10px;
   position: relative;
 }
-.stamps .atte-start button {
+.stamps .atte_start button {
   position: absolute;
   right: 10px;
   bottom: 10px;
 }
-.stamps .atte-end button {
+.stamps .atte_end button {
   position: absolute;
   left: 10px;
   bottom: 10px;
 }
-.stamps .rest-start button {
+.stamps .rest_start button {
   position: absolute;
   right: 10px;
   top: 10px;
 }
-.stamps .rest-end button {
+.stamps .rest_end button {
   position: absolute;
   left: 10px;
   top: 10px;
