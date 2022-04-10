@@ -34,6 +34,11 @@
     flex-direction: column;
     justify-content: space-between;
 }
+@media screen and (max-width: 480px) {
+    .atte_data {
+        height: 50vh;
+    }
+}
 .atte_table {
     .atte_th {
         width: 15vw;
@@ -65,11 +70,14 @@
         .atte_th:first-child,
         .atte_td:first-child {
             padding-left: 6vw;
-            width:21vw;
+            width: 21vw;
         }
 
         //スマホサイズでは表示を名前と勤務時間のみに絞る
         @media screen and(max-width:480px) {
+            .atte_data {
+                height: 60vh;
+            }
             .atte_th:nth-child(5n-3),
             .atte_td:nth-child(5n-3),
             .atte_th:nth-child(5n-2),
@@ -77,8 +85,8 @@
                 display: none;
             }
             .atte_th,
-            .atte_td{
-                height:3vh;
+            .atte_td {
+                height: 3vh;
             }
             .atte_th:first-child,
             .atte_td:first-child {

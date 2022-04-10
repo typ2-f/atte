@@ -33,6 +33,11 @@
   justify-content: space-between;
 }
 
+@media screen and (max-width: 480px) {
+  .atte_data {
+    height: 50vh;
+  }
+}
 .atte_table .atte_th {
   width: 15vw;
   height: 4.5vh;
@@ -65,6 +70,9 @@
   }
 }
 @media screen and (max-width: 768px) and (max-width: 480px) {
+  .atte_table .atte_data {
+    height: 60vh;
+  }
   .atte_table .atte_th:nth-child(5n-3),
 .atte_table .atte_td:nth-child(5n-3),
 .atte_table .atte_th:nth-child(5n-2),
