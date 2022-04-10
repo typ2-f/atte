@@ -76,6 +76,10 @@
             .atte_td:nth-child(5n-2) {
                 display: none;
             }
+            .atte_th,
+            .atte_td{
+                height:3vh;
+            }
             .atte_th:first-child,
             .atte_td:first-child {
                 padding-left: 15vw;

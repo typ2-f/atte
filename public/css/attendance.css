@@ -71,6 +71,10 @@
 .atte_table .atte_td:nth-child(5n-2) {
     display: none;
   }
+  .atte_table .atte_th,
+.atte_table .atte_td {
+    height: 3vh;
+  }
   .atte_table .atte_th:first-child,
 .atte_table .atte_td:first-child {
     padding-left: 15vw;
