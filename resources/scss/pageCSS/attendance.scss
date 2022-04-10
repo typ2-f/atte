@@ -37,6 +37,7 @@
 @media screen and (max-width: 480px) {
     .atte_data {
         height: 50vh;
+        width:100%;
     }
 }
 .atte_table {
@@ -87,6 +88,7 @@
             .atte_th,
             .atte_td {
                 height: 3vh;
+                width:30vw;
             }
             .atte_th:first-child,
             .atte_td:first-child {
