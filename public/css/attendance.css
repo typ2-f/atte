@@ -35,7 +35,7 @@
 
 @media screen and (max-width: 480px) {
   .atte_data {
-    height: 50vh;
+    height: 55vh;
     width: 100%;
   }
 }
@@ -59,6 +59,10 @@
   vertical-align: middle;
   font-size: 20px;
 }
+.atte_table .atte_th:first-child,
+.atte_table .atte_td:first-child {
+  width: 21vw;
+}
 @media screen and (max-width: 768px) {
   .atte_table .atte_th:nth-child(5n-1),
 .atte_table .atte_td:nth-child(5n-1) {
@@ -67,23 +71,35 @@
   .atte_table .atte_th:first-child,
 .atte_table .atte_td:first-child {
     padding-left: 6vw;
-    width: 21vw;
+    width: 30vw;
+  }
+  .atte_table .atte_th {
+    height: 3vh;
+    width: 20vw;
+    font-size: 16px;
+  }
+  .atte_table .atte_td {
+    height: 3vh;
+    width: 20vw;
+    font-size: 15px;
   }
 }
 @media screen and (max-width: 768px) and (max-width: 480px) {
-  .atte_table .atte_data {
-    height: 60vh;
-  }
   .atte_table .atte_th:nth-child(5n-3),
 .atte_table .atte_td:nth-child(5n-3),
 .atte_table .atte_th:nth-child(5n-2),
 .atte_table .atte_td:nth-child(5n-2) {
     display: none;
   }
-  .atte_table .atte_th,
-.atte_table .atte_td {
+  .atte_table .atte_th {
     height: 3vh;
-    width: 30vw;
+    width: 25vw;
+    font-size: 16px;
+  }
+  .atte_table .atte_td {
+    height: 3vh;
+    width: 25vw;
+    font-size: 15px;
   }
   .atte_table .atte_th:first-child,
 .atte_table .atte_td:first-child {
