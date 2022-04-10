@@ -3,10 +3,15 @@
     width: 300px;
     font-size: 18px;
     color: #fff;
-    margin-bottom:20px;
+    margin-bottom: 20px;
     padding: 5px 0;
     border-radius: 8px;
     border: 2px solid #214be0;
     background-color: #214be0;
     cursor: pointer;
+}
+@media screen and (max-width: 480px) {
+    #btn_post {
+        width: 60vw;
+    }
 }

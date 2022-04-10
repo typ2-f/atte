@@ -29,3 +29,14 @@
         }
     }
 }
+.paginate_link_sp{
+    display: none;
+}
+@media screen and(max-width:480px) {
+    .paginate_link_default{
+        display: none;
+    }
+    .paginate_link_sp{
+        display: block;
+    }
+}

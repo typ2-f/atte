@@ -14,7 +14,7 @@
   background-color: #fff;
   border-radius: 3px;
   border: 1px solid #00a2ff;
-  margin: 0 20px;
+  margin: 0 19px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,7 +38,7 @@
   height: 4.5vh;
   border-top: 1px solid darkgray;
   border-bottom: 1px solid darkgray;
-  padding: 15px 0 15px 15px;
+  padding: 15px 0 15px 12px;
   font-size: 18px;
   font-weight: bold;
   text-align: left;
@@ -53,7 +53,26 @@
   vertical-align: middle;
   font-size: 20px;
 }
-.atte_table .atte_th:first-child,
+@media screen and (max-width: 768px) {
+  .atte_table .atte_th:nth-child(5n-1),
+.atte_table .atte_td:nth-child(5n-1) {
+    display: none;
+  }
+  .atte_table .atte_th:first-child,
 .atte_table .atte_td:first-child {
-  width: 16vw;
+    padding-left: 6vw;
+    width: 21vw;
+  }
+}
+@media screen and (max-width: 768px) and (max-width: 480px) {
+  .atte_table .atte_th:nth-child(5n-3),
+.atte_table .atte_td:nth-child(5n-3),
+.atte_table .atte_th:nth-child(5n-2),
+.atte_table .atte_td:nth-child(5n-2) {
+    display: none;
+  }
+  .atte_table .atte_th:first-child,
+.atte_table .atte_td:first-child {
+    padding-left: 15vw;
+  }
 }

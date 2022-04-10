@@ -38,7 +38,12 @@
                 </tr>
             @endforeach
         </table>
-        {{ $attes->links('vendor.pagination.default') }}
+        <div class="paginate_link_default">
+            {{ $attes->links() }}
+        </div>
+        <div class="paginate_link_sp">
+            {{ $attes->links('vendor.pagination.for_smartphone') }}
+        </div>
     </div>
 
 

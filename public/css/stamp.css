@@ -7,30 +7,19 @@
   height: 80%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
 }
 .stamps form {
   width: 45%;
   padding: 10px;
-  position: relative;
 }
-.stamps .atte_start button {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-}
-.stamps .atte_end button {
-  position: absolute;
-  left: 10px;
-  bottom: 10px;
-}
-.stamps .rest_start button {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-}
-.stamps .rest_end button {
-  position: absolute;
-  left: 10px;
-  top: 10px;
+@media screen and (max-width: 480px) {
+  .stamps {
+    justify-content: center;
+  }
+  .stamps form {
+    width: 70%;
+    height: 20%;
+    margin: 5px;
+  }
 }
